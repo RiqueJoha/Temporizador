@@ -1,0 +1,19 @@
+body{
+    display:grid;
+    place-content: center;
+    background-color: rgba(41, 40, 92, 0.459);
+}
+div{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    width: 100px;
+    height: 50px
+}
+
+input{
+    display: grid;
+    place-content: center;
+    background-color: #80cbc4;
+
+}
