@@ -1,26 +1,33 @@
-const inputResultado=document.querySelector("#resultado");
-const inputSeg=document.querySelector("#segundos");
-const inputMin=document.querySelector("#minutos");
-const inputHs=document.querySelector("#horas");
+const inputResultado = document.querySelector("#resultado");
+const inputSeg = document.querySelector("#segundos");
+const inputMin = document.querySelector("#minutos");
+const inputHs = document.querySelector("#horas");
 
-let segundos=0;
+let segundosColocados = 0;
+let minutoColocados = 0;
+let horasColocadas = 0;
 
 function iniciar() {
-   
-    segundos = inputSeg.value;
-    minutos= inputMin.value;
-    horas=inputHs.value;
 
-    
+  segundosColocados = inputSeg.value;
+  minutoColocados = inputMin.value;
+  horasColocadas = inputHs.value;
 
-    const idInterval = setInterval(() => {
-      inputResultado.value=`${horas}:${minutos}:${segundos}`
-      segundos--;
-      if (segundos<0) {
-        clearInterval(idInterval);
+
+  const idInterval3 = setInterval(() => {
+    inputResultado.value = `${horasColocadas}:${minutoColocados}:${segundosColocados}`
+    segundosColocados--;
+    if (segundosColocados <= 0) {
+      segundosColocados = 0
+      minutoColocados--;
+      if (minutoColocados <= 0) {
+       minutoColocados = 0
+       horasColocadas--;
       }
-    }, 1000);
+    }
+    if ((segundosColocados <= 0) && (minutoColocados <= 0) && (horasColocadas < 0)) {
+      clearInterval(idInterval3);
+    }
 
-    
-
+  }, 1000);
 };
