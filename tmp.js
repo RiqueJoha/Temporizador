@@ -17,17 +17,28 @@ function iniciar() {
   const idInterval3 = setInterval(() => {
     inputResultado.value = `${horasColocadas}:${minutoColocados}:${segundosColocados}`
     segundosColocados--;
-    if (segundosColocados <= 0) {
-      segundosColocados = 0
-      minutoColocados--;
-      if (minutoColocados <= 0) {
-       minutoColocados = 0
-       horasColocadas--;
-      }
-    }
-    if ((segundosColocados <= 0) && (minutoColocados <= 0) && (horasColocadas < 0)) {
-      clearInterval(idInterval3);
+
+
+
+    if (minutoColocados < 0 && segundosColocados < 0) {
+      horasColocadas = 0
+      minutoColocados = 59;
+      segundosColocados = 60;
+      segundosColocados--;
+
     }
 
+    if ((segundosColocados < 0) && (minutoColocados < 60)) {
+      minutoColocados--;
+      segundosColocados = 60;
+      segundosColocados--;
+    }
+    if ((segundosColocados == 0) && (minutoColocados == 0)&&(horasColocadas==0)) {
+      clearInterval(idInterval3);
+      alert("termino el tiempo")
+    }
+
+
   }, 1000);
+
 };
